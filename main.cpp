@@ -1,11 +1,12 @@
 #include <iostream>
 
+using byte = uint8_t;
+
 struct Mem {
-	int memlimit = 256;
-	uint8_t RAM = [] * memlimit;
-	uint8_t iCache = 
+	byte RAM[128]; // 128 bytes of ram
+	byte iCache[256]; // 256 bytes of instruction memory
 	void init() {
-		for (x = 0; x < memlimit; x++) {
+		for (int x = 0; x < 128; x++) {
 			RAM[x] = 0x00;
 		}
 	}
@@ -13,15 +14,22 @@ struct Mem {
 
 struct CPU {
 	// Registers:
-	uint8_t A;
-	uint8_t B;
-	uint8_t C;
-	uint8_t D;
-	
-	uint8_t SP; // Stack pointer
-	uint8_t PC; // Program Counter
+	byte A;
+	byte B;
+	byte C;
+	byte D;
+	byte E;
+	byte F;
+	byte G;
+	byte H;
+
+	byte SP; // Stack pointer
+	byte PC; // Program Counter
 };
 
 int main() {
-	
+	std::string file;
+	printf("Enter input file: ");
+	scanf_s("%s", file);
+	printf("%s", file);
 }
